@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -87,8 +88,8 @@ public class UpgradeButton : MonoBehaviour
         cost = (int)Mathf.Round(baseCost * Mathf.Pow(1.5f, currentLevelUpgrade));
         
         
-        costText.text = "Cost " + cost.ToString();
-        levelText.text = "Level " + (currentLevelUpgrade +1).ToString();
+        costText.text = ShortScaleString.parseInt(cost, 1, 1000, true).ToString();
+        levelText.text =(currentLevelUpgrade +1).ToString();
         clickBonusText.text = "$+" + clickBonus.ToString();
     }
     private void BuyClick()
@@ -107,6 +108,19 @@ public class UpgradeButton : MonoBehaviour
             // audioSource.Play();
             AudioManager.instance.tapSfx.Play();
             UpdateText();
+            SendUpgrade(saveIndex.ToString());
         }
+    }
+
+
+
+    public void SendUpgrade(string rew)
+    {
+        var eventParams2 = new Dictionary<string, string>
+                {
+                    { "UpgradeClick", rew }
+                };
+
+        YandexMetrica.Send("UpgradeClick", eventParams2);
     }
 }

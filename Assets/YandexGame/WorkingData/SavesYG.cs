@@ -12,6 +12,7 @@ namespace YG
 
         // Тестовые сохранения для демо сцены
         // Можно удалить этот код, но тогда удалите и демо (папка Example)
+        public bool FirstClick = false;
         public float currentMoney = 0;                       // Можно задать полям значения по умолчанию
         public int amountOfMoneyPerClick = 1;
         public int amountOfMoneyPerAutoClick = 1;

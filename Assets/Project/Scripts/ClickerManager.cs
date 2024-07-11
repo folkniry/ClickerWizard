@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using YG;
+using UnityEngine.SocialPlatforms.Impl;
 
 
 public class ClickerManager : MonoBehaviour
@@ -13,6 +14,7 @@ public class ClickerManager : MonoBehaviour
     [SerializeField] private Text autoClickCountText;
     [SerializeField] private ParticleSystem effect;
     [SerializeField] private Transform pointSpawnEffect;
+    [SerializeField] private Transform wizard;
     private int SecCounter = 2;
     private float currentMoney;
     private int amountOfMoneyPerClick = 1;
@@ -21,9 +23,9 @@ public class ClickerManager : MonoBehaviour
 
     private float timerAutoClick = 1;
 
-    private float timerAdsMax = 160f;
+    private float timerAdsMax = 120f;
 
-    private float timerAds = 90f;
+    private float timerAds = 70f;
 
     private float timerMusic = 0f;
 
@@ -32,6 +34,8 @@ public class ClickerManager : MonoBehaviour
     [SerializeField] public GameObject pauseUI;
     [SerializeField] public Text pauseText;
     //[SerializeField] private AudioClip audioClip;
+    private float speed = 50.0f; 
+    public float amount = 0f; 
 
     private void OnEnable() => YandexGame.GetDataEvent += LoadData;
     private void OnDisable() => YandexGame.GetDataEvent -= LoadData;
@@ -64,7 +68,6 @@ public class ClickerManager : MonoBehaviour
     }
 
 
-
     public void PauseGame(bool timer = false)
     {
         if (timer)
@@ -73,6 +76,7 @@ public class ClickerManager : MonoBehaviour
             {
                 Time.timeScale = 0f;
                 AudioListener.pause = true;
+                YandexMetrica.Send("FullView");
                 pauseUI.SetActive(true);
                 SecCounter++;
                 StartCoroutine(TimerAds());
@@ -114,10 +118,23 @@ public class ClickerManager : MonoBehaviour
         }
     }
 
-
+    public void clickWizard()
+    {
+        amount = 0.01f;
+    }
 
     private void Update()
-    {
+    {                
+        if (amount > 0){            
+            wizard.position = new Vector3(Mathf.Sin(Time.time * speed) * amount, wizard.position.y, wizard.position.z);
+            print(Mathf.Sin(Time.time * speed) * amount);
+            amount -= Time.deltaTime * 0.05f;
+        }
+        else
+        {
+            wizard.position = new Vector3(0, wizard.position.y, wizard.position.z);
+            amount = 0f;
+        }
         if (amountOfMoneyPerAutoClick > 0)
         {
             if (timerAutoClick > 0)
@@ -139,6 +156,12 @@ public class ClickerManager : MonoBehaviour
         }
         else
         {
+            int score_ = 0;
+            for (int i = 0; i < 5;i++)
+            {
+                score_=(YandexGame.savesData.LevelUpgradeAuto[i]+YandexGame.savesData.LevelUpgradeClick[i])*10;
+            }
+            YandexGame.NewLeaderboardScores("Bestwizard", score_);
             timerAds = UnityEngine.Random.Range(60, timerAdsMax);
             PauseGame(true);
         }
@@ -152,7 +175,9 @@ public class ClickerManager : MonoBehaviour
             if (timerMusic > 1f&& !MusicOn)
             {
                 MusicOn = true;
-                AudioManager.instance.MusicSfx.Play();
+                if (!AudioManager.instance.MusicSfx.isPlaying){
+                    AudioManager.instance.MusicSfx.Play();
+                }
             }
         }
         else
@@ -167,7 +192,12 @@ public class ClickerManager : MonoBehaviour
 
     private void Click()
     {
-        timerMusic += 0.3f;
+        if (!YandexGame.savesData.FirstClick)
+        {
+            YandexMetrica.Send("StartGame");
+            YandexGame.savesData.FirstClick = true;
+        }
+        timerMusic += 0.25f;
         AddMoney(amountOfMoneyPerClick);
     }
 

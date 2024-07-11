@@ -13,7 +13,9 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
-  
+    public GameObject sOn;
+
+    public GameObject sOff;
 
     // Start is called before the first frame update
     private void Awake()
@@ -57,13 +59,32 @@ public class AudioManager : MonoBehaviour
         {           
             MusicSfx.volume = 1.0f;
             tapSfx.volume = 0.6f;
+            sOn.SetActive(true);
+            sOff.SetActive(false);
+            YandexGame.savesData.music = true;
         }
         else {
-           
+            sOn.SetActive(false);
+            sOff.SetActive(true);
             MusicSfx.volume = 0f;
             tapSfx.volume = 0f;
+            YandexGame.savesData.music = false;
         }
         
     }
-   
+
+    public void switchMusic()
+    {
+
+        if (!YandexGame.savesData.music)
+        {
+            ToogleMusic(true);
+        }
+        else
+        {
+            ToogleMusic(false);
+        }
+
+    }
+
 }

@@ -1,2 +1,2 @@
-Build path: E:/Assets/Exprot
-Build number: 1
+Build path: E:/Assets/Exports/Wizard
+Build number: 2
