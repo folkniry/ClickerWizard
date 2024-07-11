@@ -1,0 +1,55 @@
+{
+    "idSave": 514,
+    "isFirstSession": false,
+    "language": "en",
+    "promptDone": false,
+    "currentMoney": 1312.0,
+    "amountOfMoneyPerClick": 6,
+    "amountOfMoneyPerAutoClick": 6,
+    "ActiveButtonAuto": [
+        true,
+        true,
+        true,
+        false,
+        false
+    ],
+    "ActiveButtonClick": [
+        true,
+        true,
+        true,
+        true,
+        false
+    ],
+    "LevelUpgradeAuto": [
+        0,
+        1,
+        0,
+        0,
+        0
+    ],
+    "LevelUpgradeClick": [
+        0,
+        1,
+        0,
+        0,
+        0
+    ],
+    "CostAuto": [
+        0,
+        150,
+        0,
+        0,
+        0
+    ],
+    "CostClick": [
+        0,
+        150,
+        0,
+        0,
+        0
+    ],
+    "music": true,
+    "money": 0,
+    "newPlayerName": "",
+    "openLevels": []
+}

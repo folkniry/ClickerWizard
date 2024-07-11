@@ -2,13 +2,14 @@ using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using YG;
 
 public class UpgradeButton : MonoBehaviour
 {
     [SerializeField] private ClickerManager clickerManager;
    
     [SerializeField] private int clickBonus; 
-    [SerializeField] private string saveIndex;
+    [SerializeField] private int saveIndex;
     [SerializeField] private int baseCost;
     [SerializeField] private Button currentButton;
     [SerializeField] private Text costText;
@@ -17,16 +18,16 @@ public class UpgradeButton : MonoBehaviour
     [SerializeField] private GameObject closeContainer;
     [SerializeField] private Text textOpen;
     [SerializeField] private Image imageSlider;
-    [SerializeField] private AudioClip buyAudioClip;
-    [SerializeField] private AudioClip openAudioClip;
+   // [SerializeField] private AudioClip buyAudioClip;
+  //  [SerializeField] private AudioClip openAudioClip;
     private int currentLevelUpgrade = 0;
-    private int activeButton = 0;
+    private bool activeButton = false;
     private int cost;
-    private AudioSource audioSource;
+  //  private AudioSource audioSource;
     private void Start()
     {
-        audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.volume = 0.6f;
+      //  audioSource = gameObject.AddComponent<AudioSource>();
+       // audioSource.volume = 0.6f;
 
         currentButton.onClick.AddListener(BuyClick);
         UpdateText();
@@ -34,18 +35,20 @@ public class UpgradeButton : MonoBehaviour
 
     private void Update()
     {
-        if (activeButton == 0)
+        if (activeButton == false)
         {
             if (clickerManager.GetCurrentMoney >= baseCost)
             {
-                PlayerPrefs.SetInt("ActiveButton" + saveIndex, 1);
-                audioSource.clip = openAudioClip;
-                audioSource.Play();
+                YandexGame.savesData.ActiveButtonClick[saveIndex] = true;
+                //PlayerPrefs.SetInt("ActiveButton" + saveIndex, 1);
+                // audioSource.clip = openAudioClip;
+                // audioSource.Play();
+                AudioManager.instance.tapSfx.Play();
                 UpdateText();
             }
             
         }
-        if (clickerManager.GetCurrentMoney < cost &&  activeButton==1)
+        if (clickerManager.GetCurrentMoney < cost &&  activeButton==true)
         {
             if(!imageSlider.gameObject.activeSelf)
                 imageSlider.gameObject.SetActive(true);
@@ -66,9 +69,10 @@ public class UpgradeButton : MonoBehaviour
 
     private void UpdateText()
     {
-        activeButton = PlayerPrefs.GetInt("ActiveButton" + saveIndex, activeButton);
+        activeButton = YandexGame.savesData.ActiveButtonClick[saveIndex];
+        //activeButton = PlayerPrefs.GetInt("ActiveButton" + saveIndex, activeButton);
 
-        if (activeButton == 1)
+        if (activeButton == true)
         {
             closeContainer.gameObject.SetActive(false);
         }
@@ -78,7 +82,8 @@ public class UpgradeButton : MonoBehaviour
         }
 
         textOpen.text = baseCost.ToString();
-        currentLevelUpgrade =  PlayerPrefs.GetInt("saveIndex" + saveIndex, currentLevelUpgrade);
+        currentLevelUpgrade = YandexGame.savesData.LevelUpgradeClick[saveIndex];
+        //currentLevelUpgrade =  PlayerPrefs.GetInt("saveIndex" + saveIndex, currentLevelUpgrade);
         cost = (int)Mathf.Round(baseCost * Mathf.Pow(1.5f, currentLevelUpgrade));
         
         
@@ -94,10 +99,13 @@ public class UpgradeButton : MonoBehaviour
             currentLevelUpgrade += 1;
             clickerManager.AddClick(clickBonus);
             cost = (int)Mathf.Round(baseCost * Mathf.Pow(1.5f, currentLevelUpgrade));
-            PlayerPrefs.SetInt("saveIndex" + saveIndex, currentLevelUpgrade);
-            PlayerPrefs.SetInt("cost" + saveIndex, cost);
-            audioSource.clip = buyAudioClip;
-            audioSource.Play();
+            YandexGame.savesData.CostClick[saveIndex] = cost;
+            YandexGame.savesData.LevelUpgradeClick[saveIndex]= currentLevelUpgrade;
+            //PlayerPrefs.SetInt("saveIndex" + saveIndex, currentLevelUpgrade);
+            //PlayerPrefs.SetInt("cost" + saveIndex, cost);
+            // audioSource.clip = buyAudioClip;
+            // audioSource.Play();
+            AudioManager.instance.tapSfx.Play();
             UpdateText();
         }
     }
