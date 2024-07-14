@@ -23,11 +23,7 @@ namespace YG
         public int[] CostAuto = new int[5];
         public int[] CostClick = new int[5];
         public bool music = true;
-
-
-        public int money = 0;
-        public string newPlayerName = "";
-        public bool[] openLevels;
+       
         // Ваши сохранения
 
         // ...

@@ -23,7 +23,7 @@ public class ClickerManager : MonoBehaviour
 
     private float timerAutoClick = 1;
 
-    private float timerAdsMax = 120f;
+    private float timerAdsMax = 100f;
 
     private float timerAds = 70f;
 
@@ -127,7 +127,7 @@ public class ClickerManager : MonoBehaviour
     {                
         if (amount > 0){            
             wizard.position = new Vector3(Mathf.Sin(Time.time * speed) * amount, wizard.position.y, wizard.position.z);
-            print(Mathf.Sin(Time.time * speed) * amount);
+            //print(Mathf.Sin(Time.time * speed) * amount);
             amount -= Time.deltaTime * 0.05f;
         }
         else
@@ -171,11 +171,12 @@ public class ClickerManager : MonoBehaviour
         if (timerMusic > 0)
         {
             timerMusic -= Time.deltaTime;
-            print(timerMusic);
+            //print(timerMusic);
             if (timerMusic > 1f&& !MusicOn)
             {
                 MusicOn = true;
                 if (!AudioManager.instance.MusicSfx.isPlaying){
+                    wizard.GetComponent<GifAnimate>().startGif();
                     AudioManager.instance.MusicSfx.Play();
                 }
             }
@@ -183,6 +184,7 @@ public class ClickerManager : MonoBehaviour
         else
         {
             AudioManager.instance.MusicSfx.Stop();
+            wizard.GetComponent<GifAnimate>().stopGif();
             MusicOn = false;
             timerMusic = 0;            
         }

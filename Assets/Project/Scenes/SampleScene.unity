@@ -1063,7 +1063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickerManager: {fileID: 1289407526}
-  clickBonus: 50
+  clickBonus: 30
   saveIndex: 4
   baseCost: 10000
   currentButton: {fileID: 2086754139}
@@ -3925,9 +3925,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickerManager: {fileID: 1289407526}
-  clickBonus: 50
+  clickBonus: 30
   saveIndex: 4
-  baseCost: 3000
+  baseCost: 10000
   currentButton: {fileID: 1148969693}
   costText: {fileID: 890012664}
   levelText: {fileID: 148977942}
@@ -5001,9 +5001,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickerManager: {fileID: 1289407526}
-  clickBonus: 15
+  clickBonus: 10
   saveIndex: 2
-  baseCost: 500
+  baseCost: 1000
   currentButton: {fileID: 1356625408}
   costText: {fileID: 817874159}
   levelText: {fileID: 148727207}
@@ -6283,9 +6283,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickerManager: {fileID: 1289407526}
-  clickBonus: 30
+  clickBonus: 15
   saveIndex: 3
-  baseCost: 1000
+  baseCost: 3000
   currentButton: {fileID: 1903581698}
   costText: {fileID: 686709872}
   levelText: {fileID: 359699195}
@@ -7062,7 +7062,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 82cc91725ab2f0c41920038a250d768b, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -7074,7 +7074,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Our Games
+  m_Text: "\u041D\u0430\u0448\u0438 \u0438\u0433\u0440\u044B"
 --- !u!114 &911615020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8490,7 +8490,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1068719399}
   - component: {fileID: 1068719402}
-  - component: {fileID: 1068719401}
+  - component: {fileID: 1068719403}
   - component: {fileID: 1068719400}
   - component: {fileID: 1068719404}
   m_Layer: 5
@@ -8560,7 +8560,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1068719401}
+  m_TargetGraphic: {fileID: 1068719404}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -8576,7 +8576,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1068719401
+--- !u!222 &1068719402
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068719398}
+  m_CullTransparentMesh: 1
+--- !u!114 &1068719403
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8585,7 +8593,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1068719398}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: e23d38dc3f59c4347ac2d7ca30b34d70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frame:
+  - {fileID: 2800000, guid: ee97a643335788d4ca24877945dce434, type: 3}
+  - {fileID: 2800000, guid: 7c0ea57d97361fc4f943aee0cb7efa1e, type: 3}
+  - {fileID: 2800000, guid: 7788ff367e55bb741bae0515448d8d74, type: 3}
+  - {fileID: 2800000, guid: 73cd872cf7a198c4aa5d579d99ca1cba, type: 3}
+  - {fileID: 2800000, guid: c49fcde3127b3454bb2f3dbd8098e832, type: 3}
+  - {fileID: 2800000, guid: 9ee3c422ac6eddb45b8dad5a161014b2, type: 3}
+--- !u!114 &1068719404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068719398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -8596,45 +8623,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d19de2b93104f124c914e176602eaa0b, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1068719402
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1068719398}
-  m_CullTransparentMesh: 1
---- !u!95 &1068719404
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1068719398}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fe60ccf73ac48804faf749b605af1260, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &1074552580
 GameObject:
   m_ObjectHideFlags: 0
@@ -13765,7 +13760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickerManager: {fileID: 1289407526}
-  clickBonus: 15
+  clickBonus: 10
   saveIndex: 2
   baseCost: 1000
   currentButton: {fileID: 358159283}
@@ -15592,7 +15587,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -31.8, y: 4.799999}
+  m_AnchoredPosition: {x: -31.799995, y: 4.799999}
   m_SizeDelta: {x: -102.5, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1403526422
@@ -16591,9 +16586,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickerManager: {fileID: 1289407526}
-  clickBonus: 30
+  clickBonus: 20
   saveIndex: 3
-  baseCost: 3000
+  baseCost: 5000
   currentButton: {fileID: 163324010}
   costText: {fileID: 235619075}
   levelText: {fileID: 1648772721}
@@ -17584,7 +17579,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -393, y: -62.938}
+  m_AnchoredPosition: {x: -393, y: -62.938004}
   m_SizeDelta: {x: 184.7, y: 77.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1768137422

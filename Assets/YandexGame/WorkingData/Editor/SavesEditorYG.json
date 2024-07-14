@@ -1,12 +1,12 @@
 {
-    "idSave": 744,
+    "idSave": 607,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
     "FirstClick": true,
-    "currentMoney": 2751.0,
-    "amountOfMoneyPerClick": 106,
-    "amountOfMoneyPerAutoClick": 63,
+    "currentMoney": 3206.0,
+    "amountOfMoneyPerClick": 277,
+    "amountOfMoneyPerAutoClick": 165,
     "ActiveButtonAuto": [
         true,
         true,
@@ -22,34 +22,34 @@
         true
     ],
     "LevelUpgradeAuto": [
-        2,
+        4,
+        5,
         3,
-        1,
-        1,
+        3,
         0
     ],
     "LevelUpgradeClick": [
-        5,
-        2,
+        6,
         4,
-        1,
-        0
+        4,
+        3,
+        2
     ],
     "CostAuto": [
-        112,
-        338,
-        1500,
-        4500,
+        253,
+        759,
+        3375,
+        10125,
         0
     ],
     "CostClick": [
-        152,
-        225,
+        228,
+        506,
         2531,
-        1500,
-        0
+        3375,
+        6750
     ],
-    "music": false,
+    "music": true,
     "money": 0,
     "newPlayerName": "",
     "openLevels": []
