@@ -450,7 +450,7 @@ MonoBehaviour:
   clickerManager: {fileID: 1289407526}
   clickBonus: 5
   saveIndex: 1
-  baseCost: 100
+  baseCost: 4000
   currentButton: {fileID: 279697620}
   costText: {fileID: 345035520}
   levelText: {fileID: 1581065219}
@@ -1065,7 +1065,7 @@ MonoBehaviour:
   clickerManager: {fileID: 1289407526}
   clickBonus: 30
   saveIndex: 4
-  baseCost: 10000
+  baseCost: 300000
   currentButton: {fileID: 2086754139}
   costText: {fileID: 976753117}
   levelText: {fileID: 127802566}
@@ -3927,7 +3927,7 @@ MonoBehaviour:
   clickerManager: {fileID: 1289407526}
   clickBonus: 30
   saveIndex: 4
-  baseCost: 10000
+  baseCost: 500000
   currentButton: {fileID: 1148969693}
   costText: {fileID: 890012664}
   levelText: {fileID: 148977942}
@@ -5003,7 +5003,7 @@ MonoBehaviour:
   clickerManager: {fileID: 1289407526}
   clickBonus: 10
   saveIndex: 2
-  baseCost: 1000
+  baseCost: 30000
   currentButton: {fileID: 1356625408}
   costText: {fileID: 817874159}
   levelText: {fileID: 148727207}
@@ -6285,7 +6285,7 @@ MonoBehaviour:
   clickerManager: {fileID: 1289407526}
   clickBonus: 15
   saveIndex: 3
-  baseCost: 3000
+  baseCost: 170000
   currentButton: {fileID: 1903581698}
   costText: {fileID: 686709872}
   levelText: {fileID: 359699195}
@@ -8166,7 +8166,7 @@ MonoBehaviour:
   clickerManager: {fileID: 1289407526}
   clickBonus: 1
   saveIndex: 0
-  baseCost: 50
+  baseCost: 400
   currentButton: {fileID: 2046397138}
   costText: {fileID: 334773316}
   levelText: {fileID: 154648757}
@@ -8512,6 +8512,7 @@ RectTransform:
   m_LocalScale: {x: 1.5060467, y: 1.5060467, z: 1.5060467}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2119020726}
   - {fileID: 1568393621}
   m_Father: {fileID: 450536419}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13762,7 +13763,7 @@ MonoBehaviour:
   clickerManager: {fileID: 1289407526}
   clickBonus: 10
   saveIndex: 2
-  baseCost: 1000
+  baseCost: 23000
   currentButton: {fileID: 358159283}
   costText: {fileID: 2132090958}
   levelText: {fileID: 302334853}
@@ -16269,7 +16270,7 @@ MonoBehaviour:
   clickerManager: {fileID: 1289407526}
   clickBonus: 5
   saveIndex: 1
-  baseCost: 100
+  baseCost: 200
   currentButton: {fileID: 1924036153}
   costText: {fileID: 925105599}
   levelText: {fileID: 546827774}
@@ -16588,7 +16589,7 @@ MonoBehaviour:
   clickerManager: {fileID: 1289407526}
   clickBonus: 20
   saveIndex: 3
-  baseCost: 5000
+  baseCost: 140000
   currentButton: {fileID: 163324010}
   costText: {fileID: 235619075}
   levelText: {fileID: 1648772721}
@@ -17579,7 +17580,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -393, y: -62.938004}
+  m_AnchoredPosition: {x: -393, y: -62.93799}
   m_SizeDelta: {x: 184.7, y: 77.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1768137422
@@ -21096,6 +21097,98 @@ RectTransform:
   m_AnchoredPosition: {x: 28.939453, y: -8.056641}
   m_SizeDelta: {x: 477.2, y: 142}
   m_Pivot: {x: 0, y: 1}
+--- !u!1 &2119020725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2119020726}
+  - component: {fileID: 2119020729}
+  - component: {fileID: 2119020728}
+  - component: {fileID: 2119020727}
+  m_Layer: 5
+  m_Name: wow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2119020726
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119020725}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1068719399}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 570.4, y: 999.38}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2119020727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119020725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!114 &2119020728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119020725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e23d38dc3f59c4347ac2d7ca30b34d70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frame:
+  - {fileID: 2800000, guid: 7c256b99b04ea844abfb62a0552414de, type: 3}
+  - {fileID: 2800000, guid: 942edaac1a1762946a02bed3df80e776, type: 3}
+  - {fileID: 2800000, guid: 3d6772c58dd839842a707beadd9c7c04, type: 3}
+  - {fileID: 2800000, guid: dcd190d66a128b3498bcf642b38233cf, type: 3}
+  - {fileID: 2800000, guid: 6a784edc33fb3f74da2bc2ea6cd3d15e, type: 3}
+  - {fileID: 2800000, guid: c430d1b3b29bb3f40a50ce2797e2a4db, type: 3}
+--- !u!222 &2119020729
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119020725}
+  m_CullTransparentMesh: 1
 --- !u!1 &2132090955
 GameObject:
   m_ObjectHideFlags: 0

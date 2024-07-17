@@ -24,6 +24,11 @@ public class GifAnimate : MonoBehaviour
         framePerSecond = 15f;
     }
 
+    public void startGif2()
+    {
+        framePerSecond = 10f;
+    }
+
     public void stopGif()
     {
         framePerSecond = 0f;

@@ -29,7 +29,11 @@ public class ClickerManager : MonoBehaviour
 
     private float timerMusic = 0f;
 
+    private float timerGif2 = 0f;
+
     private bool MusicOn = false;
+
+    private bool Gif2On = false;
 
     [SerializeField] public GameObject pauseUI;
     [SerializeField] public Text pauseText;
@@ -171,13 +175,33 @@ public class ClickerManager : MonoBehaviour
         if (timerMusic > 0)
         {
             timerMusic -= Time.deltaTime;
+            timerGif2 -= Time.deltaTime;
             //print(timerMusic);
             if (timerMusic > 1f&& !MusicOn)
-            {
+            {                
                 MusicOn = true;
-                if (!AudioManager.instance.MusicSfx.isPlaying){
+                if (!AudioManager.instance.MusicSfx.isPlaying){                    
                     wizard.GetComponent<GifAnimate>().startGif();
                     AudioManager.instance.MusicSfx.Play();
+                }
+            }
+            if (timerGif2 > 6f )
+            {
+                if (!Gif2On)
+                {
+                    Gif2On = true;
+                    wizard.transform.GetChild(0).gameObject.SetActive(true);
+                    wizard.transform.GetChild(0).gameObject.GetComponent<GifAnimate>().startGif2();
+                }
+            }
+            else if(timerGif2 < 4f)
+            {
+                if (Gif2On)
+                {
+                    Gif2On = false;
+                    wizard.transform.GetChild(0).gameObject.SetActive(false);
+                    wizard.transform.GetChild(0).gameObject.GetComponent<GifAnimate>().stopGif();
+                    timerGif2 = 0;
                 }
             }
         }
@@ -186,7 +210,12 @@ public class ClickerManager : MonoBehaviour
             AudioManager.instance.MusicSfx.Stop();
             wizard.GetComponent<GifAnimate>().stopGif();
             MusicOn = false;
-            timerMusic = 0;            
+            timerMusic = 0;        
+            
+            Gif2On = false;
+            wizard.transform.GetChild(0).gameObject.SetActive(false);
+            wizard.transform.GetChild(0).gameObject.GetComponent<GifAnimate>().stopGif();
+            timerGif2 = 0;
         }
 
         
@@ -199,7 +228,15 @@ public class ClickerManager : MonoBehaviour
             YandexMetrica.Send("StartGame");
             YandexGame.savesData.FirstClick = true;
         }
-        timerMusic += 0.25f;
+        if (timerMusic < 5f){
+            timerMusic += 0.25f;
+        }
+        if (MusicOn&& timerGif2 < 10f)
+        {
+            timerGif2 += 0.25f;
+        }
+        //print(timerMusic);
+       // print(timerGif2);
         AddMoney(amountOfMoneyPerClick);
     }
 
@@ -220,7 +257,8 @@ public class ClickerManager : MonoBehaviour
     }
     public void AddMoney(float count)
     {
-        Instantiate(effect, pointSpawnEffect.transform);
+        ParticleSystem eff = Instantiate(effect, pointSpawnEffect.transform);
+        Destroy(eff, 1.5f);
         currentMoney += count;
         YandexGame.savesData.currentMoney = currentMoney;
         YandexGame.SaveProgress();
